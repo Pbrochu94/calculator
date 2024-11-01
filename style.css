@@ -43,4 +43,22 @@ body
     border-radius: 10px;
     display:flex;
     background-color: aqua;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.buttons
+{
+    box-sizing: border-box;
+    height:100%;
+    width:100%;
+    background-color:brown;
+    flex-shrink: 1;
+    margin:2%;
+    border-radius: 5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+    overflow: hidden;
 }
