@@ -28,8 +28,19 @@ body
 }
 .display
 {
-    height:20%;
+    height:25%;
     width:80%;
     background-color: rgb(73, 175, 22);
     margin: 5%;
+    border-radius: 10px;
+}
+
+.row
+{
+    width:80%;
+    height:14%;
+    margin: 8px;
+    border-radius: 10px;
+    display:flex;
+    background-color: aqua;
 }
