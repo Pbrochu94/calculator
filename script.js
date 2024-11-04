@@ -7,7 +7,7 @@ buttonsPrompt.forEach(function(button){
 });
 
 
-function enterInput(event)
+function enterInput(event)/* each time the user click a button display the number*/
 {
     if(event.target.innerText === "=")
         {
@@ -23,7 +23,7 @@ function enterInput(event)
     textBox.style.color = "rgb(128, 255, 0)";
 }
 
-function result(text)
+function result(text)/*When the user press = */
 {
     let operatorReg = /[+-/x]/g
     let operators = text.match(operatorReg)
@@ -58,5 +58,5 @@ function result(text)
             return result.toFixed(2)
         }
         return result
-    }
+    }  
 }
