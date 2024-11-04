@@ -37,12 +37,16 @@ body
     display:flex;
     justify-content:center;
     align-items:center;
+    flex-shrink:1;
+    overflow: hidden;
 }
 
 .display .text
 {
     color: rgba(123, 238, 9, 0.226);
     font-size: 64px;
+    flex-shrink:1;
+    overflow: hidden;
 }
 
 .row
@@ -55,6 +59,8 @@ body
     background-color: rgb(25, 26, 26);
     align-items: center;
     box-sizing: border-box;
+    flex-shrink:1;
+    overflow: hidden;
 }
 
 .buttons
