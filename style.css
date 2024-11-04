@@ -43,7 +43,7 @@ body
 
 .display .text
 {
-    color: rgba(123, 238, 9, 0.226);
+    color: rgba(128, 255, 0, 0.226);
     font-size: 64px;
     flex-shrink:1;
     overflow: hidden;

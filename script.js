@@ -1,1 +1,26 @@
-console.log("hello world")
+let buttonsPrompt = document.querySelectorAll(".buttons");
+let textBox = document.querySelector(".display .text")
+
+
+buttonsPrompt.forEach(function(button){
+    button.addEventListener("click", enterInput)
+});
+
+
+function enterInput(event)
+{
+    if(event.target.innerText === "=")
+        {
+            console.log(textBox.innerText)
+            textBox.innerText = ''
+            return;
+        }
+    if(event.target.innerText === "clear")
+        {
+            textBox.innerText = ''
+            return;
+        }
+    console.log(event.target.innerText);
+    textBox.innerText += event.target.innerText;
+    textBox.style.color = "rgb(128, 255, 0)";
+}
