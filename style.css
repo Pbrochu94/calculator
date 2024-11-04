@@ -43,10 +43,13 @@ body
 
 .display .text
 {
+    display:flex;
     color: rgba(128, 255, 0, 0.226);
     font-size: 64px;
     flex-shrink:1;
+    flex-wrap:wrap;
     overflow: hidden;
+    word-break: break-word; /* Allows text to break mid-word if necessary */
 }
 
 .row
@@ -61,6 +64,13 @@ body
     box-sizing: border-box;
     flex-shrink:1;
     overflow: hidden;
+}
+
+.operatorsRow.row
+{    
+    height:10%;
+    margin: 0px;
+    padding: 2px;
 }
 
 .buttons
