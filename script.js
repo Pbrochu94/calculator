@@ -24,6 +24,11 @@ function enterInput(event)/* each time the user click a button display the numbe
         textBox.innerText = '';
         isTotal = 0;/*after refresh re-initialise the value so it doesnt refresh on next input*/
     }
+    if(event.target.innerText === "<-")
+    {
+        textBox.innerText = textBox.innerText.slice(textBox.innerText[0]-1, textBox.innerText.length-1)/*Slice the number from first digit to before last*/
+        return;
+    }
     textBox.innerText += event.target.innerText;
     textBox.style.color = "rgb(128, 255, 0)";
     return isTotal;
