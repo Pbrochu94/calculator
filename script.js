@@ -1,11 +1,13 @@
 let buttonsPrompt = document.querySelectorAll(".buttons");
 let textBox = document.querySelector(".display .text")
-let isTotal = 0;/*The value that keeps track if the number displayed is the total to refresh on next input*/
-
 buttonsPrompt.forEach(function(button){
     button.addEventListener("click", enterInput)
 });
 
+let bodySelector = document.querySelector("body")
+bodySelector.addEventListener("keydown", enterInputKeyboard)/*add the keyboard event listener to the whole body*/
+
+let isTotal = 0;/*The value that keeps track if the number displayed is the total to refresh on next input*/
 
 function enterInput(event)/* each time the user click a button display the number*/
 {
@@ -75,4 +77,14 @@ function result(text)/*When the user press = */
         }
         return result
     }  
+}
+
+function enterInputKeyboard(event)
+{
+    let keyPressed = event.key
+    let allowedInputReg = /[=+\-\/x^0-9*$]/g
+    if(keyPressed.match(allowedInputReg))
+    {
+        console.log(keyPressed)
+    }
 }
