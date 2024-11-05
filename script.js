@@ -1,6 +1,6 @@
 let buttonsPrompt = document.querySelectorAll(".buttons");
 let textBox = document.querySelector(".display .text")
-
+let isTotal = 0;/*The value that keeps track if the number displayed is the total to refresh on next input*/
 
 buttonsPrompt.forEach(function(button){
     button.addEventListener("click", enterInput)
@@ -11,16 +11,22 @@ function enterInput(event)/* each time the user click a button display the numbe
 {
     if(event.target.innerText === "=")
         {
-            textBox.innerText = result(textBox.innerText)
-            return;
+            textBox.innerText = result(textBox.innerText);
+            return isTotal = 1;/*means the next input should refresh the display*/
         }
     if(event.target.innerText === "clear")
         {
-            textBox.innerText = ''
+            textBox.innerText = '';
             return;
         }
+    if(isTotal == 1)
+    {
+        textBox.innerText = '';
+        isTotal = 0;/*after refresh re-initialise the value so it doesnt refresh on next input*/
+    }
     textBox.innerText += event.target.innerText;
     textBox.style.color = "rgb(128, 255, 0)";
+    return isTotal;
 }
 
 function result(text)/*When the user press = */
