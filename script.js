@@ -36,9 +36,14 @@ function enterInput(event)/* each time the user click a button display the numbe
 
 function result(text)/*When the user press = */
 {
+
     let operatorReg = /[+\-\/x]/g
     let operators = text.match(operatorReg)
-    let result;
+    let result;    
+    if(text == null || text == ".") /*check if user enters only "." without number or nothing*/
+        {
+            return "Error"
+        }
     if(operators.length >=2)
     {
         return "Error"
