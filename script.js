@@ -8,7 +8,7 @@ let bodySelector = document.querySelector("body")
 bodySelector.addEventListener("keydown", enterInputKeyboard)/*add the keyboard event listener to the whole body*/
 
 let isTotal = 0;/*The value that keeps track if the number displayed is the total to refresh on next input*/
-
+let keyPressed;
 function enterInput(event)/* each time the user click a button display the number*/
 {
     if(event.target.innerText === "=")
@@ -42,7 +42,7 @@ function result(text)/*When the user press = */
     let operatorReg = /[+\-\/x]/g
     let operators = text.match(operatorReg)
     let result;    
-    if(text == null || text == ".") /*check if user enters only "." without number or nothing*/
+    if(text == null || text == "." || operators == null) /*check if user enters only "." without number or nothing*/
         {
             return "Error"
         }
@@ -81,10 +81,12 @@ function result(text)/*When the user press = */
 
 function enterInputKeyboard(event)
 {
-    let keyPressed = event.key
-    let allowedInputReg = /[=+\-\/x^0-9*$]/g
-    if(keyPressed.match(allowedInputReg))
+    keyPressed = event.key
+    let allowedInputReg = /^[=+\-\/x0-9*]$/
+    let allowed = allowedInputReg.test(keyPressed)
+    if(allowed)
     {
         console.log(keyPressed)
+        enterInput(keyPressed)
     }
 }

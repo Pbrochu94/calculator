@@ -50,6 +50,7 @@ body
     flex-wrap:wrap;
     overflow: hidden;
     word-break: break-word; /* Allows text to break mid-word if necessary */
+    user-select: none;
 }
 
 .row
@@ -87,7 +88,9 @@ body
     align-items: center;
     font-size: 3vw;
     overflow: hidden;
+    user-select: none;
 }
+
 
 .buttons:hover
 {
