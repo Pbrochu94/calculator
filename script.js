@@ -31,7 +31,7 @@ function enterInput(event)/* each time the user click a button display the numbe
 
 function result(text)/*When the user press = */
 {
-    let operatorReg = /[+-/x]/g
+    let operatorReg = /[+\-\/x]/g
     let operators = text.match(operatorReg)
     let result;
     if(operators.length >=2)
@@ -42,15 +42,15 @@ function result(text)/*When the user press = */
     
     if(operators == '+')
     {
-        return result = arr.reduce((total, current)=>parseInt(total, 10) + parseInt(current, 10))
+        return result = arr.reduce((total, current)=>parseFloat(total, 10) + parseFloat(current, 10))
     }    
     if(operators == "-")
     {
-        return result = arr.reduce((total, current)=>parseInt(total, 10) - parseInt(current, 10))
+        return result = arr.reduce((total, current)=>parseFloat(total, 10) - parseFloat(current, 10))
     }
     if(operators == "x")
     {
-        return result = arr.reduce((total, current)=>parseInt(total, 10) * parseInt(current, 10))   
+        return result = arr.reduce((total, current)=>parseFloat(total, 10) * parseFloat(current, 10))   
     }
     if(operators == "/")
     {        
