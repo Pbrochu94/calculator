@@ -28,7 +28,7 @@ function enterInput(event)/* each time the user click a button display the numbe
     }
     if(event.target.innerText === "<-")
     {
-        textBox.innerText = textBox.innerText.slice(textBox.innerText[0]-1, textBox.innerText.length-1)/*Slice the number from first digit to before last*/
+        textBox.innerText = textBox.innerText.slice(0, textBox.innerText.length-1)/*Slice the number from first digit to before last*/
         return;
     }
     textBox.innerText += event.target.innerText;
@@ -82,11 +82,34 @@ function result(text)/*When the user press = */
 function enterInputKeyboard(event)
 {
     keyPressed = event.key
-    let allowedInputReg = /^[=+\-\/x0-9*]$/
+    let allowedInputReg = /^(Enter|Backspace|Escape|[+\-\/x0-9*])$/
     let allowed = allowedInputReg.test(keyPressed)
     if(allowed)
     {
-        console.log(keyPressed)
-        enterInput(keyPressed)
+        if(keyPressed === "Enter")
+        {
+            textBox.innerText = result(textBox.innerText);
+            return isTotal = 1;/*means the next input should refresh the display*/
+        }
+        if(keyPressed === "Escape")
+            {
+                textBox.innerText = '';
+                return;
+            }
+        if(isTotal == 1)
+        {
+            textBox.innerText = '';
+            isTotal = 0;/*after refresh re-initialise the value so it doesnt refresh on next input*/
+        }
+        if(keyPressed === "Backspace")
+        {
+            console.log(textBox.innerText)
+            textBox.innerText = textBox.innerText.slice(0, textBox.innerText.length-1)/*Slice the number from first digit to before last*/
+            console.log(textBox.innerText,textBox.innerText[0]-1, textBox.innerText.length-1 )
+            return;
+        }
+        textBox.innerText += keyPressed;
+        textBox.style.color = "rgb(128, 255, 0)";
+        return isTotal = 0;
     }
 }
